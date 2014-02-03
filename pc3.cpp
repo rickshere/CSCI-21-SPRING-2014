@@ -180,6 +180,7 @@ string toUpper (string input)
 char getCharacter (string input, int charIndex)
 {
 	// CODE HERE
+	return input[charIndex];
 }
 
 /*
