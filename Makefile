@@ -6,3 +6,5 @@ pc3:pc3.cpp
 	g++ -o pc3 pc3.cpp
 pc4:pc4.cpp
 	g++ -o pc4 pc4.cpp
+pc5:pc5.cpp
+	g++ -o pc5 pc5.cpp
