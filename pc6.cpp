@@ -22,12 +22,12 @@ using namespace std;
 string prepareForDisplay (int values[], int size, char separator = ',');
 
 string prepareForDisplay (int values[], int size, char separator) {
-  string holder;
+  stringstream ss;
   for (int i = 0; i < size; i++ ) {
-      if (!(i == size - 1)) {
-      holder = values[i] << separator;
-  return holder;
-      }
+	ss << values[i] << separator;
+    string holder = ss.str();
+    return ss;
+      
   }
 }
 
