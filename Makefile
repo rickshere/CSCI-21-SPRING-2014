@@ -1,3 +1,12 @@
+#
+# Grader comments 2014.02.13
+#
+# You need to add the compile flags that Boyd talked
+# about during class. Your code doesn't compile with
+# the flags turned on, so I have to give you a zero.
+# Sorry. Get the flags in there and always use the
+# makefile to build your code.
+#
 pc1:pc1.cpp
 	g++ -o pc1 pc1.cpp
 pc2:pc2.cpp
