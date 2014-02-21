@@ -22,15 +22,12 @@ using namespace std;
 string prepareForDisplay (int values[], int size, char separator = ',');
 
 string prepareForDisplay (int values[], int size, char separator) {
-  stringstream ss;
-  for (int i = 0; i < size; i++ ) {
-	ss << values[i] << separator;
-    string holder = ss.str();
-    return ss;
-      
-  }
-}
+ string holder;
+ for ( int i = 0; i < size; i ++)
+    holder[i] = values[i] + separator;
 
+return holder;
+}
 /*
  * Test to see if an array contains a specified value.
  * @param values an integer array
