@@ -14,20 +14,59 @@ int computeAverage (int values [], int arraySize);
 int findMinValue (int values [], int arraySize);
 int findMaxValue (int values [], int arraySize);
 
-string upAndDown (string theString) {
-    if (theString % 2 == 0) {
-        toupper(theString[i])
+int countWords (string theString) {
+    int wordCount = 1;
+    
+    if (theString[0] == ' ')
+        return wordCount = 0;
+    for (unsigned int i = 0; i < (theString.length() + 1); i++) {
+        if (isspace(theString[i]) == true)
+            wordCount += 1;
+    }
+    return wordCount;
+}
+
+int computeAverage (int values [], int arraySize) {
+
+    return 0;
+    }
+        
+int findMinValue (int values[], int arraySize) {
+    return 0;
+}
+
+int findMaxValue (int values [], int arraySize) {
+ 
+    return 0;
+}
+
+
+void countCharacters (string theString, int& alpha, int& num) {
+    alpha = 0;
+    num = 0;
+    for (unsigned int i = 0; i < theString.length(); i++) {
+      if (isdigit(theString[i]))
+        num += 1;
+      else if (isalpha(theString[i]))
+        alpha += 1;
     }
 }
 
-void countCharacters (string theString, int& alpha, int& num) {
+string upAndDown (string theString) {
     
-    for (int i = 0; i < theString.length(); i++) {
-        if (isdigit(theString[i]))
-          num++;
-        if (isalpha(theString[i]))
-          alpha += 1;
-    }
+    for (unsigned int i = 0; i < theString.length(); i++)
+        toupper(theString[i]);
+    for (unsigned int i = 1; i < theString.length(); i + 2) 
+        tolower(theString[i]);
+    return theString;
+    
+    // for (unsigned int i = 0; i < theString.length(); i++) {
+    //   if (theString[i] % 2 == 0)
+    //     tolower(theString[i]);
+    //   else 
+    //     toupper(theString[i]);
+    // }
+    // return theString;
 }
 
 /* for unit testing -- do not alter */
@@ -35,7 +74,7 @@ template <typename X, typename A>
 void btassert(A assertion);
 void unittest ();
 
-int main (int argc, char* argv[])
+int main (int , char* [])
 {
 	unittest();
 	

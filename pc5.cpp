@@ -110,7 +110,7 @@ void unittest ();
 int main (int argc, char* argv[])
 {
 	unittest();
-	
+
 	return 0;
 }
 
@@ -123,11 +123,11 @@ int main (int argc, char* argv[])
 void unittest ()
 {
 	cout << "\nSTARTING UNIT TEST\n\n";
-	
+
 	streambuf* oldCout = cout.rdbuf();
 	ostringstream captureCout;
 	cout.rdbuf(captureCout.rdbuf());
-	
+
 	hello();
 	cout.rdbuf(oldCout);
 	try {
@@ -136,7 +136,7 @@ void unittest ()
 	} catch (bool b) {
 		cout << "# FAILED TEST 1 hello() #\n";
 	}
-	
+
 	captureCout.str("");
 	cout.rdbuf(captureCout.rdbuf());
 	printMessage("Hello again!");
@@ -147,35 +147,35 @@ void unittest ()
 	} catch (bool b) {
 		cout << "# FAILED TEST 2 printMessage(\"Hello again!\") #\n";
 	}
-	
+
 	try {
 		btassert<bool>(getAnswer() == 42);
 		cout << "Passed TEST 3: getAnswer()\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 3 getAnswer() #\n";
 	}
-	
+
 	try {
 		btassert<bool>(findLarger(-1, 1) == 1);
 		cout << "Passed TEST 4: findLarger(-1, 1)\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 4 findLarger(-1, 1) #\n";
 	}
-	
+
 	try {
 		btassert<bool>(findLarger(1, -1) == 1);
 		cout << "Passed TEST 5: findLarger(1, -1)\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 5 findLarger(1, -1) #\n";
 	}
-	
+
 	try {
 		btassert<bool>(findLarger(1, 1) == 1);
 		cout << "Passed TEST 6: findLarger(1, 1)\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 6 findLarger(1, 1) #\n";
 	}
-	
+
 	int alpha=0, digit=0;
 	try {
 		btassert<bool>(getStats("abc 123", alpha, digit) == 7 && alpha == 3 && digit == 3);
@@ -183,63 +183,63 @@ void unittest ()
 	} catch (bool b) {
 		cout << "# FAILED TEST 7 getStats(\"abc 123\", alpha, digit) #\n";
 	}
-	
+
 	try {
 		btassert<bool>(getStats("abc", alpha, digit) == 3 && alpha == 3 && digit == 0);
 		cout << "Passed TEST 8: getStats(\"abc\", alpha, digit)\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 8 getStats(\"abc\", alpha, digit) #\n";
 	}
-	
+
 	try {
 		btassert<bool>(getStats("123", alpha, digit) == 3 && alpha == 0 && digit == 3);
 		cout << "Passed TEST 9: getStats(\"123\", alpha, digit)\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 9 getStats(\"123\", alpha, digit) #\n";
 	}
-	
+
 	try {
 		btassert<bool>(getStats("", alpha, digit) == 0 && alpha == 0 && digit == 0);
 		cout << "Passed TEST 10: getStats(\"\", alpha, digit)\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 10 getStats(\"\", alpha, digit) #\n";
 	}
-	
+
 	try {
 		btassert<bool>(buildMessage("hello") == "Message: hello");
 		cout << "Passed TEST 11: buildMessage(\"hello\")\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 11 buildMessage(\"hello\") #\n";
 	}
-	
+
 	try {
 		btassert<bool>(buildMessage("hello", true) == "Message: HELLO");
 		cout << "Passed TEST 12: buildMessage(\"hello\", true)\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 12 buildMessage(\"hello\", true) #\n";
 	}
-	
+
 	try {
 		btassert<bool>(buildMessage("HELLO", false) == "Message: HELLO");
 		cout << "Passed TEST 13: buildMessage(\"HELLO\", false)\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 13 buildMessage(\"HELLO\", false) #\n";
 	}
-	
+
 	try {
 		btassert<bool>(buildMessage("HELLO", true) == "Message: HELLO");
 		cout << "Passed TEST 14: buildMessage(\"HELLO\", true)\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 14 buildMessage(\"HELLO\", true) #\n";
 	}
-	
+
 	try {
 		btassert<bool>(buildMessage() == "Message: empty");
 		cout << "Passed TEST 15: buildMessage()\n";
 	} catch (bool b) {
 		cout << "# FAILED TEST 15 buildMessage() #\n";
 	}
-	
+
 	cout << "\nUNIT TEST COMPLETE\n\n";
 }
 
