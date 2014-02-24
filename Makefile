@@ -16,5 +16,5 @@ pc7:pc7.cpp
 	g++ $(FLAGS) -o pc7 pc7.cpp
 pp1:pp1.cpp
 	g++ $(FLAGS) -o pp1 pp1.cpp
-pp8:pp8.cpp
-	g++ $(FLAGS) -o pp8 pp8.cpp
+pc8:pc8.cpp
+	g++ $(FLAGS) -o pc8 pc8.cpp
