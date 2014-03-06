@@ -82,7 +82,7 @@ int main(int, char*[]) {
 // CODE HERE -- FUNCTION DEFINITIONS
 float Converter::fahrenheitToCelsius(float temp) {
   return ((temp - 32) * 5) / 9;
-  cout << ((temp - 32) * 5) / 9 << endl;
+ 
 }
 float Converter::celsiusToFahrenheit(float temp) {
   return ((temp * 9) / 5) + 32;
