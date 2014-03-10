@@ -54,6 +54,15 @@ int main (int argc, char* argv[])
 void processArguments (int argc, char* argv[]) {
    int number = 0;
    for (int i = 1; i < argc; i ++){
+	//
+	// Grader comments 2014.02.26
+	// Use indentation to make the code easier to read.
+	// That is, use it to show the hierarchy of each line
+	// of code. These two lines should be indented only
+	// six spaces, because they're directly subordinate
+	// to the for() loop. Make sense? Let me know if not.
+	// --Rob
+	//
         stringstream ss(argv[i]);
         ss >> number;
       if (number == 10)
