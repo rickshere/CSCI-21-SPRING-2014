@@ -137,6 +137,12 @@ double stringToDouble (string value)
  */
 bool stringToBool (string value)
 {
+	//
+	// Grader comments 2014.02.05
+	//
+	// Return type is bool, not char. So you would return
+	// true for a T or false for anything else.
+	//
 	// CODE HERE
     if (value[0] == 'T' || value[0] == 't') 
         return 'T';
