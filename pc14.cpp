@@ -69,10 +69,10 @@ void swapValues (int values[], int index1, int index2) {
 void selectionSort (int theArray[], unsigned int size) {
     unsigned int minimumValueElement;
     for (unsigned int i=0; i < size - 1; i++) {
-	    minimumValueIndex = i;
+	    minimumValueElement = i;
 		for (unsigned int j= i + 1; j < size; j++) {
-		  if (theArray[j] < theArray[minimumValueIndex])
-            minimumValueIndex = j;
+		  if (theArray[j] < theArray[minimumValueElement])
+            minimumValueElement = j;
 		}
 		swapValues (theArray, i, minimumValueElement);
 	}
