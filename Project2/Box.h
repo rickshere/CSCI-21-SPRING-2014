@@ -1,3 +1,13 @@
+/*
+ * PROGRAM prizes and box
+ * PROGRAM put prize in box
+ *
+ * PROGRAMMER Rick Arriola
+ * Date created: 4/1/14
+ * Last date modified: 4/4
+ *
+ * SOURCES USED : cplusplus.com
+ */
 #include "Prize.h"
 #pragma once
 
