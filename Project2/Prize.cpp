@@ -1,5 +1,7 @@
 #include "Prize.h"
 
+//member definitions of Prize.h
+
 Prize::Prize() {
   prizeName = "NO NAME";
   prizeValue = 0;

@@ -6,10 +6,14 @@ using namespace std;
 
 class Prize {
   public:
+    //constructor
     Prize();
+    //overloaded constructor
     Prize(string newPrizeName, unsigned int newPrizeValue);
+    //destructor
     ~Prize();
     friend bool operator ==(Prize prize1, Prize prize2);
+    //mutators and accessors for two member variables
     string getPrizeName();
     unsigned int getPrizeValue();
     void setPrizeName(string newPrizeName);
@@ -17,6 +21,7 @@ class Prize {
     
   
   private:
+    //member variables
     string prizeName;
     unsigned int prizeValue;
 };

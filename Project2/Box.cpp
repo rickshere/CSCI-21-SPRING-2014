@@ -1,5 +1,7 @@
 #include "Box.h"
 
+//member definitions of Box.h
+
 Box::Box() {
   boxNumber = 0;
   boxColor = "NO COLOR";
