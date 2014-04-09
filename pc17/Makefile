@@ -1,4 +1,4 @@
-FLAGS = -Wall -Wextra -Werror -pedantic
+FLAGS = -Wall -Wextra -Werror -pedantic 
 
 pc17: SLNode.o pc17.o
 	g++ $(FLAGS) SLNode.o pc17.o -o pc17
