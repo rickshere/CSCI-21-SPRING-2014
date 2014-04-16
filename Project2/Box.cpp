@@ -73,14 +73,16 @@ Prize& Box::getPrize(unsigned int index) {
 }
 
 Prize Box::removePrize (unsigned int index) {
-    if (index < prizeCount) {
-         Prize prizeHolder = prizes[index];
-        // for (unsigned int i = index; i < prizeCount; i++) 
-        //   if (index < prizeCount - 1) 
-        //     prizes[i] = prizes[i + 1];
-        // prizeCount -= 1;
+   
+    Prize prizeHolder = prizes[index];
+     if (index < prizeCount) 
         return prizeHolder;
-    } else
+    
+    for (unsigned int i = index; i < prizeCount; i++) 
+        if (index > prizeCount) 
+        prizes[i] = prizes[i + 1];
+    prizeCount -= 1;
+    
         return scratch;
 }
 
