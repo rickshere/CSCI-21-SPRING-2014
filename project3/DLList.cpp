@@ -116,26 +116,46 @@ void DLList::insert(int newValue) {
   }
 }
 
+
+DLNode* DLList::searchIndex(int targetValue) const {
+  DLNode* nodeInQuestion = head;
+  for (unsigned int i = 0; i < size; i++) {
+    if (nodeInQuestion -> getContents() == targetValue) {
+      return nodeInQuestion;
+    } else
+    nodeInQuestion = nodeInQuestion->getNext();
+  }
+  return 0;
+}
+
+
 bool DLList::removeFirst(int target) {
+  bool tFound = false;
   if (head == NULL)
-    return false;
-  else {
+    return tFound;
+  else if (head -> getContents() == target) {
+    popFront();
+    tFound = true;
+  } else 
+    tFound = true;
     DLNode* targetFound = searchIndex(target);
     targetFound ->getPrevious() -> setNext(targetFound ->getNext());
     targetFound ->getNext() ->setPrevious (targetFound ->getPrevious());
     targetFound = NULL;
     delete targetFound;
     size--;
-    return true;
-  }
+    return tFound ;
+
 }
 
 bool DLList::removeAll(int target) {
-  if (head == NULL)
-    return false;
   bool targetFound = false;
-  while (removeFirst(target)) {
-    targetFound = true;
+
+  if (head == NULL)
+    return targetFound;
+  for (unsigned int i = 0; i < size; i++) {
+      removeFirst(target); 
+      targetFound = true;
   }
   return targetFound;
 }
@@ -168,17 +188,6 @@ string DLList::toString() const {
 ostream& operator <<(ostream& out, const DLList& src) {
   out << src.toString();
   return out;
-}
-
-DLNode* DLList::searchIndex(int targetValue) const {
-  DLNode* nodeInQuestion = head;
-  for (unsigned int i = 0; i < size; i++) {
-    if (nodeInQuestion -> getContents() == targetValue) {
-      return nodeInQuestion;
-    } else
-    nodeInQuestion = nodeInQuestion->getNext();
-  }
-  return NULL;
 }
 
 bool DLList::get(int target) const {
