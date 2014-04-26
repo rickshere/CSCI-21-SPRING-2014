@@ -41,14 +41,18 @@ int main(int argc, char* argv[]) {
         input = currentLine.at(0);
 
           switch (input) {
-            case 'I':
-              strValue = currentLine.substr(2);
-              ss << strValue;
-              ss >> intValue;
-              cout << "VALUE " << intValue << " INSERTED" << endl;
-              list->insert(intValue);
+            
+            case 'C':
+              if (activeList == false)
+              list = new DLList;
+              else if (activeList == true) {
+              delete list; 
+              list = new DLList; 
+              }
+              activeList = true;
+              cout << "LIST CREATED" << endl;
               break;
-
+              
             case 'X':
               list->clear();
               cout << "LIST CLEARED" << endl;
@@ -60,28 +64,12 @@ int main(int argc, char* argv[]) {
               cout << "LIST DELETED" << endl;
               break;
 
-            case 'A':
-              cout << "VALUE " << list->getFront() << " AT HEAD" << endl;
-              break;
-
-            case 'K':
-              list->popBack();
-              cout << "REMOVED TAIL" << endl;
-              break;
-
-            case 'C':
-              if (activeList == false)
-              list = new DLList;
-              else if (activeList == true) {
-              delete list; 
-              list = new DLList; 
-              }
-              activeList = true;
-              cout << "LIST CREATED" << endl;
-              break;
-
-             case 'P':
-              cout << list->toString() << endl;
+             case 'I':
+              strValue = currentLine.substr(2);
+              ss << strValue;
+              ss >> intValue;
+              cout << "VALUE " << intValue << " INSERTED" << endl;
+              list->insert(intValue);
               break;
 
             case 'F':
@@ -100,22 +88,22 @@ int main(int argc, char* argv[]) {
               list->pushBack(intValue);
               break;
 
-            case 'N':
-              cout << "LIST SIZE IS " << list->getSize() << endl;
+            case 'A':
+              cout << "VALUE " << list->getFront() << " AT HEAD" << endl;
               break;
 
             case 'Z':
               cout << "VALUE " << list->getBack() << " AT TAIL" << endl;
               break;
 
-            case 'R':
-              strValue = currentLine.substr(2);
-              ss << strValue;
-              ss >> intValue;
-              if (list->removeFirst(intValue))
-                cout << "VALUE " << intValue << " REMOVED" << endl;
-              else
-                cout << "VALUE " << intValue << " NOT FOUND" << endl;
+            case 'T':
+              list->popFront();
+              cout << "REMOVED HEAD" << endl;
+              break;
+
+            case 'K':
+              list->popBack();
+              cout << "REMOVED TAIL" << endl;
               break;
 
             case 'E':
@@ -138,9 +126,22 @@ int main(int argc, char* argv[]) {
                 cout << "VALUE " << intValue << " NOT FOUND" << endl;
               break;
 
-            case 'T':
-              list->popFront();
-              cout << "REMOVED HEAD" << endl;
+             case 'P':
+              cout << list->toString() << endl;
+              break;
+
+            case 'N':
+              cout << "LIST SIZE IS " << list->getSize() << endl;
+              break;
+
+            case 'R':
+              strValue = currentLine.substr(2);
+              ss << strValue;
+              ss >> intValue;
+              if (list->removeFirst(intValue))
+                cout << "VALUE " << intValue << " REMOVED" << endl;
+              else
+                cout << "VALUE " << intValue << " NOT FOUND" << endl;
               break;
 
             default:
