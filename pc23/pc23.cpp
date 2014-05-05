@@ -63,7 +63,7 @@ bool wordIsPalindrome (string word) {
     //if (word[0] = "")
     if (word.length() < 3) 
         return true;
-    else if (word[0] == word[word.length() - 1])
+    else if (word[0] == word[word.length() - 1] && wordIsPalindrome(word.substr(1, word.length() - 2)))
         return true;
     else
         return false;
@@ -84,10 +84,12 @@ bool wordIsPalindrome (string word) {
 string arrayForwardsAsString (int array[], unsigned int startIndex, unsigned int size);
 
 string arrayForwardsAsString (int array[], unsigned int startIndex, unsigned int size) {
-     stringstream ss;
-ss << array << " " << startIndex << " " << size;
-    string anotherString = ss.str();
-    return anotherString;
+    stringstream ss;
+    
+	if (startIndex < size)
+		ss << array[startIndex] << " " << arrayForwardsAsString(array, startIndex+1, size);
+
+	return ss.str();
 }
 
 
@@ -105,11 +107,16 @@ ss << array << " " << startIndex << " " << size;
 string arrayBackwardsAsString (int array[], int startIndex, unsigned int size);
 
 string arrayBackwardsAsString (int array[], int startIndex, unsigned int size) {
-      stringstream ss;
-ss << array << " " << startIndex << " " << size;
-    string anotherString = ss.str();
-    return anotherString;
+	stringstream ss;
+
+	if(startIndex < 0)
+		return "";
+	else
+		ss << array[startIndex] << " " << arrayBackwardsAsString(array, startIndex-1, size);
+
+	return ss.str();
 }
+
 
 /* for unit testing -- do not alter */
 template <typename X, typename A>
