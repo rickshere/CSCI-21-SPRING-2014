@@ -20,8 +20,6 @@
         	
     void BSTree::clear() {
         clear(root);
-        size = 0;
-        root = NULL;
     }
         
 	bool BSTree::insert(int newVal) {
@@ -37,7 +35,15 @@
     }
    
     void BSTree::clear(BSTNode*& nRoot) {
-        nRoot = NULL;
+        if (nRoot == NULL) 
+            return;
+        clear(nRoot->getLeftChild());
+        clear(nRoot->getRightChild());
+        delete nRoot;
+        nRoot=NULL;
+        size--;
+            
+        
     }
     
     bool BSTree::insert(int newVal, BSTNode*& nRoot) {
